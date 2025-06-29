@@ -9,6 +9,28 @@ complete workflow including data exploration, preprocessing, model
 development, cross‑validation, evaluation and visualisation using
 Python’s scientific computing stack.
 
+
+## Results
+The tuned models show competitive performance, as summarised below
+(values rounded to three decimal places).  Besides accuracy and
+ROC–AUC, precision, recall and F1‑score are provided.  Higher values
+indicate better performance.
+
+| Model                   | CV Accuracy (mean) | Test Accuracy | Precision | Recall | F1‑score | ROC–AUC |
+|-------------------------|--------------------|---------------|-----------|--------|----------|--------:|
+| Logistic Regression     | 0.974              | **0.988**     | 0.991     | 0.991  | 0.991    | 0.998 |
+| Random Forest           | 0.956              | 0.936         | 0.944     | 0.953  | 0.949    | 0.991 |
+| SVM (RBF kernel)        | **0.981**          | 0.982         | 0.991     | 0.981  | 0.986    | 0.998 |
+| k‑Nearest Neighbours    | 0.968              | 0.965         | 0.947     | **1.000** | 0.973    | 0.995 |
+
+The models all achieve very high accuracy due to the separable nature
+of the features.  The tuned support vector machine obtains the best
+cross‑validated accuracy, while logistic regression remains the top
+performer on the held‑out test set.  k‑NN achieves perfect recall
+(i.e. all malignant tumours are correctly identified) at the cost of a
+slight drop in precision.  Random forests benefit from tuning but
+still lag behind the other models on this small dataset.
+
 ## Dataset
 
 The dataset used here comes from the `sklearn.datasets` module.  It
@@ -109,26 +131,6 @@ curves were plotted for each model.  These metrics provide insight into
 both overall correctness and the ability to discriminate between
 classes.
 
-## Results
-The tuned models show competitive performance, as summarised below
-(values rounded to three decimal places).  Besides accuracy and
-ROC–AUC, precision, recall and F1‑score are provided.  Higher values
-indicate better performance.
-
-| Model                   | CV Accuracy (mean) | Test Accuracy | Precision | Recall | F1‑score | ROC–AUC |
-|-------------------------|--------------------|---------------|-----------|--------|----------|--------:|
-| Logistic Regression     | 0.974              | **0.988**     | 0.991     | 0.991  | 0.991    | 0.998 |
-| Random Forest           | 0.956              | 0.936         | 0.944     | 0.953  | 0.949    | 0.991 |
-| SVM (RBF kernel)        | **0.981**          | 0.982         | 0.991     | 0.981  | 0.986    | 0.998 |
-| k‑Nearest Neighbours    | 0.968              | 0.965         | 0.947     | **1.000** | 0.973    | 0.995 |
-
-The models all achieve very high accuracy due to the separable nature
-of the features.  The tuned support vector machine obtains the best
-cross‑validated accuracy, while logistic regression remains the top
-performer on the held‑out test set.  k‑NN achieves perfect recall
-(i.e. all malignant tumours are correctly identified) at the cost of a
-slight drop in precision.  Random forests benefit from tuning but
-still lag behind the other models on this small dataset.
 
 ## Figures
 
