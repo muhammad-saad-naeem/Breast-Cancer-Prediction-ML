@@ -21,7 +21,7 @@ used in machine‑learning research to benchmark classification algorithms
 because the features are well‑behaved and the class imbalance is
 manageable.  According to published tutorials on the topic, the
 dataset is commonly employed to classify tumours based on FNA features
-and logistic regression is often used as a baseline classifier【880477803465464†L84-L92】.
+and logistic regression is often used as a baseline classifier.
 
 For reproducibility, the script included in this repository writes a
 copy of the dataset to `breast_cancer_data.csv` in the project root.
@@ -48,14 +48,14 @@ supervised algorithms were tested:
 1. **Logistic Regression** – a linear model that predicts the
    probability of belonging to a class using the sigmoid function.
    Logistic regression is commonly used for binary classification tasks
-   because it outputs probabilities between 0 and 1【625540818750763†L81-L87】.
+   because it outputs probabilities between 0 and 1.
    It assumes a linear relationship between the predictors and the log‑odds
    of the event occurring and is straightforward to interpret.
 2. **Random Forest** – an ensemble of decision trees.  A random
    forest combines the output of many decision trees built on random
    subsets of the data and features and averages their predictions.
    This ensemble method is popular because it reduces overfitting and
-   handles both classification and regression problems well【116672908942517†L329-L367】.
+   handles both classification and regression problems well.
 3. **Support Vector Machine (RBF kernel)** – a non‑linear classifier
    that constructs a decision boundary by maximising the margin between
    classes.  Using the radial basis function kernel enables the
@@ -75,7 +75,7 @@ constructed.  The scikit‑learn documentation notes that it is
 best cross‑validation score【799207419018659†L125-L156】.  For each model we defined a
 small parameter grid and used `GridSearchCV` with a 5‑fold
 stratified split to identify the best combination.  Stratified splits
-preserve the class distribution in each fold【722743218215345†L81-L90】, which is
+preserve the class distribution in each fold, which is
 important for medical datasets where one class may be under‑represented.
 
 For logistic regression, the default `C=1.0` performed best and
@@ -95,7 +95,7 @@ data into *k* folds; each fold is used once as a validation set while
 the remaining `k−1` folds are used for training, and the resulting
 scores are averaged.  Stratified k‑fold ensures that each fold
 contains approximately the same proportion of malignant and benign
-cases as the full dataset【722743218215345†L81-L90】.  This reduces the variance of
+cases as the full dataset.  This reduces the variance of
 the performance estimate compared with a single train–test split and
 prevents misleading results due to class imbalance.  The grid search
 was driven by the mean cross‑validated accuracy, and the best
