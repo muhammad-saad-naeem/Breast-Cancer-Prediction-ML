@@ -72,7 +72,7 @@ In scikit‑learn, hyper‑parameters (e.g. the `C` and `gamma` of a
 support vector machine) are passed to the estimator when it is
 constructed.  The scikit‑learn documentation notes that it is
 "possible and recommended" to search the hyper‑parameter space for the
-best cross‑validation score【799207419018659†L125-L156】.  For each model we defined a
+best cross‑validation score.  For each model we defined a
 small parameter grid and used `GridSearchCV` with a 5‑fold
 stratified split to identify the best combination.  Stratified splits
 preserve the class distribution in each fold, which is
