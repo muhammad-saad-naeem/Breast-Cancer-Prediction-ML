@@ -1,0 +1,5 @@
+model,cv_accuracy_mean
+Logistic Regression,0.9736686849868033
+Random Forest,0.956078248719143
+SVM (RBF kernel),0.9806707033069397
+K-Nearest Neighbours,0.9683744760130415
